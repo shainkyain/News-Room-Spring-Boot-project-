@@ -1,0 +1,269 @@
+<!--&lt;!&ndash;&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<html xmlns:th="http://www.thymeleaf.org">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<head>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <title>Thymeleaf For Each Loop</title>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    &lt;!&ndash; Link to Tailwind CSS stylesheet &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</head>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<body class="bg-gray-100 h-screen flex justify-center items-center">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<div class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <h1 class="text-2xl font-bold mb-4">Person Details</h1>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <ul>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        <li th:each="property : ${#strings.arraySplit('name,age,email', ',')}" class="mb-2">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            &lt;!&ndash; Iterate over properties &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <span class="font-bold inline-block w-24" th:text="${property}">hello 2</span>: &lt;!&ndash; Display property name &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <span th:text="${person[property]}" class="inline-block ml-2">helo 1</span> &lt;!&ndash; Display property value &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        </li>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    </ul>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</body>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</html>&ndash;&gt;&ndash;&gt;-->
+
+
+
+
+
+<!--&lt;!&ndash;&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<html>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<head>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <title>Container with Heading and Description</title>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    &lt;!&ndash; Link to Tailwind CSS stylesheet &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</head>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<body class="bg-gray-100 h-screen flex justify-center items-center">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<div class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <h1 class="text-2xl font-bold mb-4">Heading</h1>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <p class="text-gray-700">Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</body>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</html>&ndash;&gt;&ndash;&gt;-->
+
+
+
+
+
+<!--&lt;!&ndash;&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<html xmlns:th="http://www.thymeleaf.org">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<head>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <title>Container with Heading and Description</title>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    &lt;!&ndash; Link to Tailwind CSS stylesheet &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</head>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<div class="bg-gray-100 h-screen flex justify-center items-center">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<div class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <h1 class="text-2xl font-bold mb-4" th:text="${heading}">Heading</h1>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <ul>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        <li th:each="item : ${descriptionList}" class="text-gray-700">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <p th:text="${item}">Description</p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        </li>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    </ul>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</html>&ndash;&gt;&ndash;&gt;-->
+
+
+
+
+
+
+
+<!--&lt;!&ndash;&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<html>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<head>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <title>News</title>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    &lt;!&ndash; Link to Tailwind CSS stylesheet &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</head>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<body class="bg-gray-100 h-screen flex justify-center items-center">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<div class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <h1 class="text-2xl font-bold mb-4">This is News 1</h1>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <p class="truncate">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        Hello and welcome you in the new News room of the year. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    </p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <a href="#" class="text-blue-500">Read more</a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</body>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</html>&ndash;&gt;&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Contact Us</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    &lt;!&ndash; Include Tailwind CSS &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">&ndash;&gt;-->
+<!--&lt;!&ndash;    <script src="https://kit.fontawesome.com/7297aa0d91.js" crossorigin="anonymous"></script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body class="bg-gray-100">&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash; Header &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>galte hoo gaye saab</h1>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash; Footer &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<footer class="bg-gray-800 text-white py-4 mt-20">&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul class=" flex justify-center items-center p-5">&ndash;&gt;-->
+<!--&lt;!&ndash;            <li class="p-5"><a href="https://www.linkedin.com/in/shainkyjain/" class="p-2"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a href="https://github.com/shainkyain" class="p-2"><i class="fa-brands fa-github"></i> GitHub</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    <div class="container mx-auto text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>&copy; 2024 Your Company. All rights reserved.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</footer>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>User Profile</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<body class="bg-gray-100">&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div class="container mx-auto px-4 py-8">&ndash;&gt;-->
+
+<!--&lt;!&ndash;    &lt;!&ndash; Profile Card &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="bg-white rounded-lg shadow-md p-6">&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash; Profile Picture &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="flex justify-center">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="rounded-full h-24 w-24">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        &lt;!&ndash; User Details &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="mt-6 text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;            <h1 class="text-2xl font-bold">John Doe</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-gray-600">@johndoe</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-sm text-gray-500 mt-2">Web Developer | UI/UX Designer</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-gray-700 mt-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget augue sed justo malesuada semper.&ndash;&gt;-->
+<!--&lt;!&ndash;            </p>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        &lt;!&ndash; Social Links &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="flex justify-center space-x-4 mt-6">&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-twitter"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-facebook"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-instagram"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>User Profile</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<body class="bg-gray-100">&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div class="min-h-screen flex items-center justify-center bg-gray-100">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-md">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="text-center mb-6">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="rounded-full h-32 w-32 mx-auto mb-4">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            <h1 class="text-2xl font-bold">John Doe</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-gray-600">@johndoe</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="border-t border-gray-200 pt-4">&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-gray-700"><strong>Name:</strong> John Doe</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-gray-700"><strong>Username:</strong> johndoe</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-gray-700"><strong>Email:</strong> johndoe@example.com</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-gray-700"><strong>Mobile No:</strong> +1234567890</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-gray-700"><strong>Gender:</strong> Male</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="text-gray-700"><strong>Nationality:</strong> USA</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>User Profile</title>-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">-->
+<!--</head>-->
+
+<!--<body class="bg-gray-100">-->
+
+<!--<div class="bg-gray-100">-->
+<!--<div class="min-h-screen flex items-center justify-center bg-gray-100">-->
+<!--    <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-md">-->
+<!--        <div class="text-center mb-6">-->
+<!--&lt;!&ndash;            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="rounded-full h-32 w-32 mx-auto mb-4">&ndash;&gt;-->
+<!--            <h1 class="text-2xl font-bold">John Doe</h1>-->
+<!--            <p class="text-gray-600">@johndoe</p>-->
+<!--        </div>-->
+<!--        <div  class="grid grid-cols-2 gap-x-4 mb-4">-->
+<!--            <p class="text-gray-700"><strong>Name:</strong> </p> <p> John Doe</p>-->
+<!--            <p class="text-gray-700"><strong>Username:</strong></p> <p> johndoe</p>-->
+<!--            <p class="text-gray-700"><strong>Email:</strong></p> <p> johndoe@example.com</p>-->
+<!--            <p class="text-gray-700"><strong>Mobile No:</strong> </p> <p>+1234567890</p>-->
+<!--            <p class="text-gray-700"><strong>Gender:</strong> </p> <p>Male</p>-->
+<!--            <p class="text-gray-700"><strong>Nationality:</strong> </p> <p>USA</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+<!--<div class="min-h-screen flex items-center justify-center bg-gray-100">-->
+<!--    <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-md">-->
+<!--        <div class="text-center mb-6">-->
+<!--            <h1 class="text-3xl font-bold text-gray-800">Profile</h1>-->
+<!--            <p class="text-gray-600">View and edit your profile details</p>-->
+<!--        </div>-->
+<!--        <div class="border-b border-gray-200 pb-4 mb-4">-->
+<!--            <h2 class="text-xl font-semibold text-gray-800 mb-2">John Doe</h2>-->
+<!--            <p class="text-gray-600">@johndoe</p>-->
+<!--        </div>-->
+<!--        <div class="grid grid-cols-2 gap-x-4 mb-4">-->
+<!--            <div class="text-gray-600"><strong>Email:</strong></div>-->
+<!--            <div class="text-gray-800">johndoe@example.com</div>-->
+<!--            <div class="text-gray-600"><strong>Mobile No:</strong></div>-->
+<!--            <div class="text-gray-800">+1234567890</div>-->
+<!--            <div class="text-gray-600"><strong>Gender:</strong></div>-->
+<!--            <div class="text-gray-800">Male</div>-->
+<!--            <div class="text-gray-600"><strong>Nationality:</strong></div>-->
+<!--            <div class="text-gray-800">USA</div>-->
+<!--        </div>-->
+<!--        <div class="text-center">-->
+<!--            <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">Edit Profile</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--</body>-->
+
+<!--</html>-->

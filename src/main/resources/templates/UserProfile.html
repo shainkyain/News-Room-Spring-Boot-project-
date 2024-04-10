@@ -1,0 +1,132 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="https://www.thymeleaf.com">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>UserProfile</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div th:each="User: ${User}">-->
+<!--    th:each="News :${News}"-->
+<!--<h1 th:text="${User.name}"> hii me render nahi hua</h1>-->
+
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/7297aa0d91.js" crossorigin="anonymous"></script>
+    <title>Index</title>
+</head>
+<body>
+<!--nav begin-->
+
+
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo"/>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">NewsRoom</span>
+        </a>
+
+        </button>
+        <div class="w-full md:block md:w-auto" id="navbar-default">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+
+                <li>
+                    <a href="/addNews"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"> <i class="fa-solid fa-newspaper"></i> Add A News </a>
+                </li>
+
+                <li>
+                    <a href="/userProfile"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-user"></i> User Profile</a>
+                </li>
+
+                <li>
+                    <a href="/contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-regular fa-address-book"></i> Contact</a>
+                </li>
+                <li>
+                    <a href="/logout"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--nav end-->
+
+<!--main body begin-->
+
+<!--User Data-->
+<div class="bg-gray-100" th:each="User: ${User}">
+    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+        <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-md">
+            <div class="text-center mb-6">
+                <!--            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="rounded-full h-32 w-32 mx-auto mb-4">-->
+                <h1 class="text-2xl font-bold" th:text="${User.name}">John Doe</h1>
+                <p class="text-gray-600" th:text="${User.username}">@johndoe</p>
+            </div>
+            <div  class="grid grid-cols-2 gap-x-4 mb-4">
+                <p class="text-gray-700"><strong>Name:</strong> </p>           <p th:text="${User.name}"> John Doe</p>
+                <p class="text-gray-700"><strong>Username:</strong></p>        <p th:text="${User.username}"> johndoe</p>
+                <p class="text-gray-700"><strong>Email:</strong></p>           <p th:text="${User.email}"> johndoe@example.com</p>
+                <p class="text-gray-700"><strong>Mobile No:</strong></p>       <p th:text="${User.mobileNo}">+1234567890</p>
+                <p class="text-gray-700"><strong>Gender:</strong> </p>         <p th:text="${User.gender}">Male</p>
+                <p class="text-gray-700"><strong>Nationality:</strong> </p>    <p th:text="${User.nationality}">USA</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--user date ends-->
+
+
+<!--news List-->
+
+
+<div class="bg-gray-100 h-auto grid grid-cols-2 gap-x-4 mb-4 justify-center items-center mt-3 p-10">
+    <div th:each="News :${News}" class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg m-5">
+        <ul >
+            <li>
+                <h1 class="text-2xl font-bold mb-4 mt-4" th:text="${News.heading}">Heading</h1>
+
+                <p class="truncate" th:text="${News.newsDesc}">Description this is a log description so that i can check its working without reloading the project again and again</p>
+                <a th:href="@{/newsPage/user/{newsId}(newsId =${News.newsId})}" class="text-blue-500  ">Read more</a>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+
+<!--main body end-->
+<!--footer begins-->
+<footer class="bg-gray-800 text-white py-4 object-bottom ">
+
+    <div>
+        <ul class=" flex justify-center items-center p-5  ">
+            <li class="p-5"><a href="https://www.linkedin.com/in/shainkyjain/" class="p-2"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://github.com/shainkyain" class="p-2"><i class="fa-brands fa-github"></i> GitHub</a></li>
+            <li><a></a></li>
+            <li><a></a></li>
+        </ul>
+    </div>
+
+
+    <div class="container mx-auto text-center">
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </div>
+</footer>
+
+<!--footer ends-->
+</body>
+</html>

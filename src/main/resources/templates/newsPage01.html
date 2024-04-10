@@ -1,0 +1,118 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/7297aa0d91.js" crossorigin="anonymous"></script>
+    <title>Index</title>
+</head>
+<body>
+<!--nav begin-->
+
+
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">NewsRoom</span>
+        </a>
+        <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <a href="/addNews"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"> <i class="fa-solid fa-newspaper"></i> Add A News </a>
+                </li>
+
+                <li>
+                    <a href="/userProfile"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-user"></i> User Profile</a>
+                </li>
+
+                <li>
+                    <a href="/contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-regular fa-address-book"></i> Contact</a>
+                </li>
+                <li>
+                    <a href="/logout"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!--Nav Ends-->
+
+<div>
+
+    <div  th:each="News :${News}" class="bg-gray-100 h-screen flex flex-col  items-center mt-3">
+        <h1 class="text-6xl font-bold mb-4 mt-4" th:text="${News.heading}">from page</h1>
+        <p th:text="${News.newsDesc}" class="text-2xl mt-10"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aspernatur blanditiis consectetur eius enim esse ex ipsum numquam provident! Ab amet aperiam architecto assumenda deserunt doloribus, eius eligendi facilis, harum minima nisi obcaecati quisquam quo reiciendis reprehenderit saepe vero? Culpa cumque dignissimos error est molestias odit omnis praesentium quidem tempore ut? Ad, animi assumenda commodi incidunt natus nihil perspiciatis. At doloremque eaque esse ipsa non odio praesentium, qui. A aliquid animi asperiores at consectetur consequuntur culpa delectus deserunt dolor excepturi facere id ipsam laudantium minima neque nisi nulla officiis quaerat reiciendis sed, sunt temporibus ut, velit veniam, voluptates. Eaque, hic. from page Description this is a log description so that i can check its working without reloading the project again and again</p>
+
+<!--        th:href="@{/newsPage/{id}(id =${News.id})/likes/{likes}(likes=${News.likes})}-->
+
+   <form th:action="@{/newsPage/likes/{newsId}(newsId=${News.newsId})}" method="post" class="mt-10">
+       <button type="submit" class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500 ">
+           <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+               <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z"/>
+           </svg>
+           <span class=" sr-only ">Icon description  </span>
+           <p class="px-2" th:text="${News.likes}">no. of likes</p>
+       </button>
+   </form>
+
+
+<!--        div consist delete news button and edit news button-->
+
+<div class="flex">
+
+    <div class="mt-3 px-5">
+            <a th:href="@{/newsPage/delete/{newsId}(newsId=${News.newsId})}"  class="text-red-700 border border-red-700 hover:bg-red-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500 ">
+                <p class="text-left"  >Delete</p>
+            </a>
+</div>
+
+
+        <div class="mt-3 px-5">
+            <a  th:href="@{/newsPage/edit/{newsId}(newsId=${News.newsId})}" class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500 ">
+
+                <p class="px-2" >Edit</p>
+            </a>
+        </div>
+</div>
+
+</div>
+
+
+</div>
+
+
+<!--footer begins-->
+<footer class="bg-gray-800 text-white py-4 ">
+
+    <div>
+        <ul class=" flex justify-center items-center p-5 mt-3 px-5">
+            <li class="p-5"><a href="https://www.linkedin.com/in/shainkyjain/" class="p-2"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://github.com/shainkyain" class="p-2"><i class="fa-brands fa-github"></i> GitHub</a></li>
+            <li><a></a></li>
+            <li><a></a></li>
+        </ul>
+    </div>
+
+
+    <div class="container mx-auto text-center">
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </div>
+</footer>
+
+<!--footer ends-->
+
+</body>
+</html>

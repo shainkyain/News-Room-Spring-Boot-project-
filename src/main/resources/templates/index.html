@@ -1,0 +1,102 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/7297aa0d91.js" crossorigin="anonymous"></script>
+    <title>Index</title>
+</head>
+<body>
+<!--nav begin-->
+
+
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo"/>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">News Room</span>
+        </a>
+<!--        <button data-collapse-toggle="navbar-default" type="button"-->
+<!--                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"-->
+<!--                aria-controls="navbar-default" aria-expanded="false">-->
+<!--            <span class="sr-only">Open main menu</span>-->
+<!--            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">-->
+<!--                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"-->
+<!--                      d="M1 1h15M1 7h15M1 13h15"/>-->
+<!--            </svg>-->
+        </button>
+        <div class="w-full md:block md:w-auto" id="navbar-default">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <a href="/addNews"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"> <i class="fa-solid fa-newspaper"></i> Add A News </a>
+                </li>
+
+                <li>
+                    <a href="/userProfile"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-solid fa-user"></i> User Profile</a>
+                </li>
+
+                <li>
+                    <a href="/contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-regular fa-address-book"></i> Contact</a>
+                </li>
+                <li>
+                    <a href="/logout"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--nav end-->
+
+<!--main body begin-->
+
+<!--<ul>-->
+<!--    <li th:each="News :${News}" class="mb-2">-->
+<!--        &lt;!&ndash; Iterate over properties &ndash;&gt;-->
+<!--        <span class="font-bold mr-2" th:text="${News.heading}"></span>: &lt;!&ndash; Display property name &ndash;&gt;-->
+<!--        <span th:text="${News.newsDesc}"></span> &lt;!&ndash; Display property value &ndash;&gt;-->
+<!--    </li>-->
+<!--</ul>-->
+
+
+<div class="bg-gray-100 h-auto flex flex-col justify-center items-center mt-3">
+    <div th:each="News :${News}" class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg m-5">
+        <ul >
+            <li>
+                <h1 class="text-2xl font-bold mb-4 mt-4" th:text="${News.heading}">Heading</h1>
+
+                <p class="truncate" th:text="${News.newsDesc}">Description this is a log description so that i can check its working without reloading the project again and again</p>
+                <a th:href="@{/newsPage/{newsId}(newsId =${News.newsId})}" class="text-blue-500  ">Read more</a>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+
+<!--main body end-->
+<!--footer begins-->
+<footer class="bg-gray-800 text-white py-4 object-bottom ">
+
+    <div>
+        <ul class=" flex justify-center items-center p-5  ">
+            <li class="p-5"><a href="https://www.linkedin.com/in/shainkyjain/" class="p-2"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://github.com/shainkyain" class="p-2"><i class="fa-brands fa-github"></i> GitHub</a></li>
+            <li><a></a></li>
+            <li><a></a></li>
+        </ul>
+    </div>
+
+
+    <div class="container mx-auto text-center">
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </div>
+</footer>
+
+<!--footer ends-->
+</body>
+</html>
